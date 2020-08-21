@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "annepro2.h"
+#include "qmk_ap2_led.h"
 
 enum anne_pro_layers {
   _BASE_LAYER,
@@ -10,7 +11,8 @@ enum anne_pro_layers {
 enum custom_keys {
     KC_AP_LED_ON = AP2_SAFE_RANGE,
     KC_AP_LED_OFF,
-    KC_AP_LED_INC,
+    KC_AP_LED_NXT,
+    KC_AP_LED_PRV,
   };
 /*
 * Layer _BASE_LAYER
@@ -120,12 +122,13 @@ enum custom_keys {
   */
  [_FN_LAYER] = KEYMAP( /* Base */
     KC_AP2_USB, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL,
-    KC_AP2_BT_UNPAIR, KC_AP2_BT1, KC_AP2_BT2, KC_AP2_BT3, KC_AP2_BT4, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_AP_LED_ON,
+    KC_AP2_BT_UNPAIR, KC_AP2_BT1, KC_AP2_BT2, KC_AP2_BT3, KC_AP2_BT4, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_AP_LED_PRV, KC_AP_LED_NXT, KC_AP_LED_ON,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_AP_LED_OFF,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(_WIN_LAYER), TG(_BASE_LAYER), KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
  ),
 };
+
 const uint16_t keymaps_size = sizeof(keymaps);
 
 
@@ -146,18 +149,27 @@ layer_state_t layer_state_set_user(layer_state_t layer) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case KC_AP_LED_OFF:
-            if (record->event.pressed)
+            if (record->event.pressed) {
                 annepro2LedDisable();
+/*                annepro2LedPrevProfile(); */
+            }
             return false;
         case KC_AP_LED_ON:
-            if (record->event.pressed)
+            if (record->event.pressed) {
                 annepro2LedEnable();
+                annepro2LedNextProfile();
+            }
             return false;
-        // case KC_AP_LED_INC:
-        //     if (record->event.pressed) {
-        //         currentProfile = (currentProfile + 1) % NUM_LED_PROFILES;
-        //         annepro2LedSetProfile(currentProfile);
-        //     return false;
+        case KC_AP_LED_NXT:
+            if (record->event.pressed) {
+                annepro2LedNextProfile();
+            }
+            return false;
+        case KC_AP_LED_PRV:
+            if (record->event.pressed) {
+                annepro2LedPrevProfile();
+            }
+            return false;
         default:
             break;
     }
