@@ -83,9 +83,9 @@ enum anne_pro_layers {
   * ,-----------------------------------------------------------------------------------------.
   * |  `  |   1 |   2 |   3 |   4 |   5 |   6 |   7 |   8 |   9 |  0  |  -  |  =  |  DELETE   |
   * |-----------------------------------------------------------------------------------------+
-  * | Tab    |  q  |  w  |  e  |  r  |  t  |  y  |  u  |  i  |  o  | PS | HOME | END |   \    |
+  * | Tab    |MS_B1|MS_UP|MS_B2|  r  |  t  |  y  |  u  |  i  |  o  | PS | HOME | END |   \    |
   * |-----------------------------------------------------------------------------------------+
-  * | Esc     |  a  |  s  | d   |  f  |  g  |RIGHT|DOWN | UP  |LEFT | PGUP|PGDN |    Enter    |
+  * | Esc     |MS_L |MS_DN|MS_R |  f  |  g  |RIGHT|DOWN | UP  |LEFT | PGUP|PGDN |    Enter    |
   * |-----------------------------------------------------------------------------------------+
   * | Shift      |  z  |  x  |  c  |  v  |  b  |  n  |  m  |  ,  |INSRT| DEL |    Shift       |
   * |-----------------------------------------------------------------------------------------+
@@ -94,11 +94,11 @@ enum anne_pro_layers {
   *
   */
  [_ARROW_LAYER] = KEYMAP( /* Base */
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PSCR, KC_HOME, KC_END, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_PGUP, KC_PGDN, KC_TRNS,
-    KC_TRNS, KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_INS, KC_DEL, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
+    _______, KC_BTN1, KC_MS_U, KC_BTN2, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_HOME, KC_END, _______,
+    _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_PGUP, KC_PGDN, _______,
+    _______, KC_VOLU, KC_VOLD, KC_MUTE, _______, _______, _______, _______, _______, KC_INS, KC_DEL, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______
 ),
   /*
   * Layer _FN_LAYER
@@ -117,10 +117,10 @@ enum anne_pro_layers {
   */
  [_FN_LAYER] = KEYMAP( /* Base */
     KC_AP2_USB, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL,
-    KC_AP2_BT_UNPAIR, KC_AP2_BT1, KC_AP2_BT2, KC_AP2_BT3, KC_AP2_BT4, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_AP_LED_PREV_PROFILE, KC_AP_LED_ON,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_AP_LED_OFF,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(_WIN_LAYER), TG(_BASE_LAYER), KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    KC_AP2_BT_UNPAIR, KC_AP2_BT1, KC_AP2_BT2, KC_AP2_BT3, KC_AP2_BT4, _______, _______, _______, _______, _______, _______, _______, KC_AP_LED_PREV_PROFILE, KC_AP_LED_ON,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_AP_LED_OFF,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, TG(_WIN_LAYER), TG(_BASE_LAYER), _______,
+    _______, _______, _______, _______, _______, _______, _______, _______
  ),
 };
 
